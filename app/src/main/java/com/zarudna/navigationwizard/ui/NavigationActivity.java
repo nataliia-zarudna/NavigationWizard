@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,8 @@ import android.view.Menu;
 import com.zarudna.navigationwizard.R;
 import com.zarudna.navigationwizard.WizardApplication;
 import com.zarudna.navigationwizard.menu.MenuItem;
+import com.zarudna.navigationwizard.ui.textfunction.TextFunctionActivity;
+import com.zarudna.navigationwizard.ui.urlfunction.UrlFunctionActivity;
 
 import java.util.List;
 
@@ -43,6 +46,8 @@ public abstract class NavigationActivity extends AppCompatActivity {
 
         initToolbar();
 
+        addFragment();
+
         mViewModel.loadMenu().observe(this, menu -> {
             Log.d(TAG, "Menu items " + menu);
 
@@ -52,6 +57,20 @@ public abstract class NavigationActivity extends AppCompatActivity {
         });
     }
 
+    private void addFragment() {
+
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        if (fragment == null) {
+            fragment = getFragment();
+            if (fragment != null) {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .add(R.id.fragment_container, fragment)
+                        .commit();
+            }
+        }
+    }
+
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -59,6 +78,8 @@ public abstract class NavigationActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
     }
+
+    protected abstract Fragment getFragment();
 
     @Override
     public boolean onOptionsItemSelected(android.view.MenuItem item) {
@@ -77,7 +98,10 @@ public abstract class NavigationActivity extends AppCompatActivity {
             Intent menuItemIntent = null;
             switch (menuItem.getFunction()) {
                 case MenuItem.FUNCTION_TYPE_TEXT:
-                    menuItemIntent = TextActivity.newIntent(NavigationActivity.this, menuItem.getParam());
+                    menuItemIntent = TextFunctionActivity.newIntent(NavigationActivity.this, menuItem.getParam());
+                    break;
+                case MenuItem.FUNCTION_TYPE_URL:
+                    menuItemIntent = UrlFunctionActivity.newIntent(NavigationActivity.this, menuItem.getParam());
                     break;
             }
 
