@@ -4,6 +4,8 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.util.Log;
 
+import com.zarudna.navigationwizard.InMemoryCache;
+
 import javax.inject.Inject;
 
 import retrofit2.Call;
@@ -17,17 +19,25 @@ import retrofit2.Response;
 public class MenuRepository {
 
     private static final String TAG = "MenuRepository";
+    private static final String MENU_CACHE_KEY = "com.zarudna.navigationwizard.menu.cached_menu";
 
     private MenuAPI mMenuAPI;
+    private InMemoryCache mCache;
 
     @Inject
-    public MenuRepository(MenuAPI menuAPI) {
+    public MenuRepository(MenuAPI menuAPI, InMemoryCache cache) {
         mMenuAPI = menuAPI;
+        mCache = cache;
     }
 
     public LiveData<Menu> getMenuItems() {
+        Object cachedMenu = mCache.get(MENU_CACHE_KEY);
+        if (cachedMenu != null && cachedMenu instanceof LiveData) {
+            return (LiveData<Menu>) cachedMenu;
+        }
 
         final MutableLiveData<Menu> menuLiveData = new MutableLiveData<>();
+        mCache.put(MENU_CACHE_KEY, menuLiveData);
 
         mMenuAPI.getMenuItems().enqueue(new Callback<Menu>() {
 

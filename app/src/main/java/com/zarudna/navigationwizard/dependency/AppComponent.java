@@ -2,6 +2,8 @@ package com.zarudna.navigationwizard.dependency;
 
 import com.zarudna.navigationwizard.ui.NavigationViewModel;
 
+import javax.inject.Singleton;
+
 import dagger.Component;
 
 /**
@@ -9,6 +11,7 @@ import dagger.Component;
  */
 
 @Component(modules = {AppModule.class})
+@Singleton
 public interface AppComponent {
 
     void inject(NavigationViewModel navigationViewModel);
