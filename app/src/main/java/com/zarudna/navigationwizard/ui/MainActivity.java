@@ -1,29 +1,19 @@
 package com.zarudna.navigationwizard.ui;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
+import com.zarudna.navigationwizard.menu.MenuItem;
 
-import com.zarudna.navigationwizard.R;
-import com.zarudna.navigationwizard.WizardApplication;
+import java.util.List;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends NavigationActivity {
 
     private static final String TAG = "MainActivity";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected void onLoadMenuItems(List<MenuItem> menuItems) {
 
-        MainViewModel viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        ((WizardApplication) getApplication()).getAppComponent().inject(viewModel);
-
-        viewModel.loadMenu().observe(this, menu -> {
-
-            Log.d(TAG, "Menu items " + menu);
-
-        });
+        android.view.MenuItem menuItem = mNavView.getMenu().getItem(0);
+        if (menuItem != null) {
+            startActivity(menuItem.getIntent());
+        }
     }
 }

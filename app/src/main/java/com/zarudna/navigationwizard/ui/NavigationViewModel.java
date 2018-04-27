@@ -12,7 +12,7 @@ import javax.inject.Inject;
  * Created by nsirobaba on 4/27/18.
  */
 
-public class MainViewModel extends ViewModel {
+public class NavigationViewModel extends ViewModel {
 
     @Inject
     MenuRepository mMenuRepository;

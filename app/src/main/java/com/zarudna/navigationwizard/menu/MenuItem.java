@@ -56,4 +56,13 @@ public class MenuItem {
     public void setParam(String param) {
         this.param = param;
     }
+
+    @Override
+    public String toString() {
+        return "MenuItem{" +
+                "name='" + name + '\'' +
+                ", function='" + function + '\'' +
+                ", param='" + param + '\'' +
+                '}';
+    }
 }
