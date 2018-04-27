@@ -1,4 +1,4 @@
-package com.zarudna.navigationwizard;
+package com.zarudna.navigationwizard.menu;
 
 import android.support.annotation.StringDef;
 
