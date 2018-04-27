@@ -1,6 +1,6 @@
 package com.zarudna.navigationwizard.dependency;
 
-import com.zarudna.navigationwizard.MainActivity;
+import com.zarudna.navigationwizard.ui.MainViewModel;
 
 import dagger.Component;
 
@@ -11,6 +11,6 @@ import dagger.Component;
 @Component(modules = {AppModule.class})
 public interface AppComponent {
 
-    void inject(MainActivity mainActivity);
+    void inject(MainViewModel mainViewModel);
 
 }
