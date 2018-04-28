@@ -12,7 +12,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * ViewModel for loading navigation menu
  */
 
 public class NavigationViewModel extends ViewModel {
