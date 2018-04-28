@@ -1,4 +1,4 @@
-package com.zarudna.navigationwizard.menu;
+package com.zarudna.navigationwizard.model.menu;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;

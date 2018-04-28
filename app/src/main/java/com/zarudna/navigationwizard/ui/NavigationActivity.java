@@ -12,10 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.zarudna.navigationwizard.R;
 import com.zarudna.navigationwizard.WizardApplication;
-import com.zarudna.navigationwizard.menu.MenuItem;
+import com.zarudna.navigationwizard.model.menu.MenuItem;
 import com.zarudna.navigationwizard.ui.imagefunction.ImageFunctionActivity;
 import com.zarudna.navigationwizard.ui.textfunction.TextFunctionActivity;
 import com.zarudna.navigationwizard.ui.urlfunction.UrlFunctionActivity;
@@ -26,7 +27,7 @@ import java.util.List;
  * Created by nsirobaba on 4/27/18.
  */
 
-public abstract class NavigationActivity extends AppCompatActivity {
+public abstract class NavigationActivity extends AppCompatActivity implements NavigationViewModel.NavigationViewModelListener {
 
     private static final String TAG = "NavigationActivity";
 
@@ -44,17 +45,18 @@ public abstract class NavigationActivity extends AppCompatActivity {
 
         mViewModel = ViewModelProviders.of(this).get(NavigationViewModel.class);
         ((WizardApplication) getApplication()).getAppComponent().inject(mViewModel);
+        mViewModel.setListener(this);
 
         initToolbar();
 
         addFragment();
 
-        mViewModel.loadMenu().observe(this, menu -> {
-            Log.d(TAG, "Menu items " + menu);
+        mViewModel.loadMenu().observe(this, menuItems -> {
+            Log.d(TAG, "Menu items " + menuItems);
 
-            fillNavMenu(menu);
+            fillNavMenu(menuItems);
 
-            onLoadMenuItems(menu.getMenuItems());
+            onLoadMenuItems(menuItems);
         });
     }
 
@@ -92,9 +94,9 @@ public abstract class NavigationActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void fillNavMenu(com.zarudna.navigationwizard.menu.Menu menu) {
+    private void fillNavMenu(List<com.zarudna.navigationwizard.model.menu.MenuItem> menuItems) {
         Menu navMenu = mNavView.getMenu();
-        for (MenuItem menuItem : menu.getMenuItems()) {
+        for (MenuItem menuItem : menuItems) {
 
             Intent menuItemIntent = null;
             switch (menuItem.getFunction()) {
@@ -119,5 +121,10 @@ public abstract class NavigationActivity extends AppCompatActivity {
     }
 
     protected void onLoadMenuItems(List<MenuItem> menuItems) {
+    }
+
+    @Override
+    public void showErrorMessage(int message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

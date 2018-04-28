@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NavigationWizard</string>
+    <string name="fetch_menu_items_error_message">Error during fetching menu items</string>
 </resources>

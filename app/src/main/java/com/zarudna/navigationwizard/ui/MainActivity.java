@@ -2,7 +2,7 @@ package com.zarudna.navigationwizard.ui;
 
 import android.support.v4.app.Fragment;
 
-import com.zarudna.navigationwizard.menu.MenuItem;
+import com.zarudna.navigationwizard.model.menu.MenuItem;
 
 import java.util.List;
 
