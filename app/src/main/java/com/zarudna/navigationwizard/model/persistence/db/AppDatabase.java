@@ -3,6 +3,7 @@ package com.zarudna.navigationwizard.model.persistence.db;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
 import com.zarudna.navigationwizard.model.menu.MenuItem;
@@ -12,6 +13,7 @@ import com.zarudna.navigationwizard.model.menu.MenuItem;
  */
 
 @Database(entities = {MenuItem.class}, version = 1)
+@TypeConverters(Converters.class)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String DATABASE_NAME = "navigation_wizard_db";

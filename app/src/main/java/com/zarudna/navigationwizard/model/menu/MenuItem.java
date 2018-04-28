@@ -3,10 +3,12 @@ package com.zarudna.navigationwizard.model.menu;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 import android.support.annotation.StringDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.util.UUID;
 
 /**
  * Menu Item POJO
@@ -23,12 +25,10 @@ public class MenuItem {
     @interface FunctionTypes {
     }
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey()
+    @NonNull
     @ColumnInfo(name = "item_id")
-    private int itemID;
-
-    @ColumnInfo(name = "menu_id")
-    private int menuID;
+    private UUID itemID;
 
     private String name;
 
@@ -38,25 +38,18 @@ public class MenuItem {
     private String param;
 
     public MenuItem(String name, String function, String param) {
+        this.itemID = UUID.randomUUID();
         this.name = name;
         this.function = function;
         this.param = param;
     }
 
-    public int getItemID() {
+    public UUID getItemID() {
         return itemID;
     }
 
-    public void setItemID(int itemID) {
+    public void setItemID(UUID itemID) {
         this.itemID = itemID;
-    }
-
-    public int getMenuID() {
-        return menuID;
-    }
-
-    public void setMenuID(int menuID) {
-        this.menuID = menuID;
     }
 
     public String getName() {
@@ -85,9 +78,33 @@ public class MenuItem {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MenuItem item = (MenuItem) o;
+
+        if (itemID != null ? !itemID.equals(item.itemID) : item.itemID != null) return false;
+        if (name != null ? !name.equals(item.name) : item.name != null) return false;
+        if (function != null ? !function.equals(item.function) : item.function != null)
+            return false;
+        return param != null ? param.equals(item.param) : item.param == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = itemID != null ? itemID.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (function != null ? function.hashCode() : 0);
+        result = 31 * result + (param != null ? param.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "MenuItem{" +
-                "name='" + name + '\'' +
+                "itemID=" + itemID +
+                ", name='" + name + '\'' +
                 ", function='" + function + '\'' +
                 ", param='" + param + '\'' +
                 '}';
