@@ -6,6 +6,9 @@ import com.zarudna.navigationwizard.model.menu.MenuItem;
 
 import java.util.List;
 
+/**
+ * Launch activity
+ */
 public class MainActivity extends NavigationActivity {
 
     private static final String TAG = "MainActivity";

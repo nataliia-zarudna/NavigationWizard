@@ -24,7 +24,7 @@ import com.zarudna.navigationwizard.ui.urlfunction.UrlFunctionActivity;
 import java.util.List;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * Base activity with navigation menu
  */
 
 public abstract class NavigationActivity extends AppCompatActivity implements NavigationViewModel.NavigationViewModelListener {

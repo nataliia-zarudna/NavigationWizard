@@ -9,7 +9,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Created by nsirobaba on 4/28/18.
+ * Dagger module for room objects
  */
 
 @Module

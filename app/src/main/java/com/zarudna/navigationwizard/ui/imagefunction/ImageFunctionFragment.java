@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 import com.zarudna.navigationwizard.R;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * Fragment to display image from loaded menu
  */
 
 public class ImageFunctionFragment extends Fragment {

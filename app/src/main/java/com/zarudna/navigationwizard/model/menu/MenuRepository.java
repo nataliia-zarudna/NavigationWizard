@@ -7,7 +7,7 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.zarudna.navigationwizard.InMemoryCache;
+import com.zarudna.navigationwizard.model.cache.InMemoryCache;
 import com.zarudna.navigationwizard.model.persistence.db.MenuItemDao;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * Repository for menu objects
  */
 
 public class MenuRepository {
@@ -39,6 +39,11 @@ public class MenuRepository {
         mMenuItemDao = menuItemDao;
     }
 
+    /**
+     * Load menu items from api or return cached value if exists
+     * @param errorListener error listener
+     * @return menu items
+     */
     public LiveData<List<MenuItem>> getMenuItems(@Nullable LoadMenuErrorListener errorListener) {
         Object cachedMenu = mCache.get(MENU_CACHE_KEY);
         if (cachedMenu != null && cachedMenu instanceof LiveData) {

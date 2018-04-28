@@ -8,7 +8,7 @@ import android.content.Context;
 import com.zarudna.navigationwizard.model.menu.MenuItem;
 
 /**
- * Created by nsirobaba on 4/28/18.
+ * Application room database
  */
 
 @Database(entities = {MenuItem.class}, version = 1)

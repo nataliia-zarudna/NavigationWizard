@@ -8,7 +8,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * Dagger component
  */
 
 @Component(modules = {AppModule.class, RoomModule.class})

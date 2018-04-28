@@ -10,7 +10,7 @@ import com.zarudna.navigationwizard.model.menu.MenuItem;
 import java.util.List;
 
 /**
- * Created by nsirobaba on 4/28/18.
+ * Menu Item Dao methods
  */
 @Dao
 public interface MenuItemDao {

@@ -1,6 +1,6 @@
 package com.zarudna.navigationwizard.dependency;
 
-import com.zarudna.navigationwizard.InMemoryCache;
+import com.zarudna.navigationwizard.model.cache.InMemoryCache;
 import com.zarudna.navigationwizard.model.menu.MenuAPI;
 import com.zarudna.navigationwizard.model.menu.MenuRepository;
 import com.zarudna.navigationwizard.model.persistence.db.MenuItemDao;
@@ -11,7 +11,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * Dagger module for app objects
  */
 
 @Module

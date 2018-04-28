@@ -1,10 +1,10 @@
-package com.zarudna.navigationwizard;
+package com.zarudna.navigationwizard.model.cache;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * In-memory cache
  */
 
 public class InMemoryCache {
@@ -15,10 +15,20 @@ public class InMemoryCache {
         cache = new HashMap<>();
     }
 
+    /**
+     * Put data to cache
+     * @param key key of data
+     * @param value value
+     */
     public void put(String key, Object value) {
         cache.put(key, value);
     }
 
+    /**
+     * Get data from cache
+     * @param key key of data
+     * @return value
+     */
     public Object get(String key) {
         return cache.get(key);
     }

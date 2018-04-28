@@ -11,10 +11,7 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * Menu Item POJO
  */
-@Entity(tableName = "menu_items"/*,
-        foreignKeys = {@ForeignKey(entity = Menu.class,
-                                   parentColumns = "menu_id",
-                                   childColumns = "menu_id")}*/)
+@Entity(tableName = "menu_items")
 public class MenuItem {
 
     public static final String FUNCTION_TYPE_TEXT = "text";

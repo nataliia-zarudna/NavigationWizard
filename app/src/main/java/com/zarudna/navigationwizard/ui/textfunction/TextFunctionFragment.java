@@ -14,7 +14,7 @@ import com.zarudna.navigationwizard.R;
 import com.zarudna.navigationwizard.databinding.FragmentTextBinding;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * Fragment to display text from loaded menu
  */
 
 public class TextFunctionFragment extends Fragment {

@@ -12,7 +12,7 @@ import android.webkit.WebView;
 import com.zarudna.navigationwizard.R;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * Function to display image from loaded menu
  */
 
 public class UrlFunctionFragment extends Fragment {

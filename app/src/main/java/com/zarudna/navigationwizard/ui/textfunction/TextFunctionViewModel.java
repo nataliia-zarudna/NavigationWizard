@@ -5,14 +5,13 @@ import android.databinding.Observable;
 import android.databinding.PropertyChangeRegistry;
 
 import com.zarudna.navigationwizard.BR;
+import com.zarudna.navigationwizard.ui.ObservableViewModel;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * ViewModel for text display
  */
 
-public class TextFunctionViewModel extends ViewModel implements Observable {
-
-    private PropertyChangeRegistry mRegistry = new PropertyChangeRegistry();
+public class TextFunctionViewModel extends ObservableViewModel {
 
     private String mText;
 
@@ -23,15 +22,5 @@ public class TextFunctionViewModel extends ViewModel implements Observable {
     public void setText(String text) {
         this.mText = text;
         mRegistry.notifyChange(this, BR.viewModel);
-    }
-
-    @Override
-    public void addOnPropertyChangedCallback(OnPropertyChangedCallback onPropertyChangedCallback) {
-        mRegistry.add(onPropertyChangedCallback);
-    }
-
-    @Override
-    public void removeOnPropertyChangedCallback(OnPropertyChangedCallback onPropertyChangedCallback) {
-        mRegistry.remove(onPropertyChangedCallback);
     }
 }

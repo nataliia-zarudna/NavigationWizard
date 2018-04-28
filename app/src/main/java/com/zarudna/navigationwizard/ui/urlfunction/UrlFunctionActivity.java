@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import com.zarudna.navigationwizard.ui.NavigationActivity;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * Activity to display url from loaded menu
  */
 
 public class UrlFunctionActivity extends NavigationActivity {

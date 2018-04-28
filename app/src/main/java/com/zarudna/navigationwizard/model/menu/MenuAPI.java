@@ -6,11 +6,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * API to load menu data
  */
 
 public interface MenuAPI {
-
 
     String BASE_URL = "https://www.dropbox.com/s/fk3d5kg6cptkpr6/";
 

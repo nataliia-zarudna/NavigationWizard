@@ -9,7 +9,7 @@ import com.zarudna.navigationwizard.model.persistence.RoomModule;
 import com.zarudna.navigationwizard.model.persistence.db.AppDatabase;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * Application
  */
 
 public class WizardApplication extends Application {

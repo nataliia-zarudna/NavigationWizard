@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import com.zarudna.navigationwizard.ui.NavigationActivity;
 
 /**
- * Created by nsirobaba on 4/27/18.
+ * Activity to display image from loaded menu
  */
 
 public class ImageFunctionActivity extends NavigationActivity {
