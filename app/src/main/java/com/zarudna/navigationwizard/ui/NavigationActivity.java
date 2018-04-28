@@ -16,6 +16,7 @@ import android.view.Menu;
 import com.zarudna.navigationwizard.R;
 import com.zarudna.navigationwizard.WizardApplication;
 import com.zarudna.navigationwizard.menu.MenuItem;
+import com.zarudna.navigationwizard.ui.imagefunction.ImageFunctionActivity;
 import com.zarudna.navigationwizard.ui.textfunction.TextFunctionActivity;
 import com.zarudna.navigationwizard.ui.urlfunction.UrlFunctionActivity;
 
@@ -102,6 +103,9 @@ public abstract class NavigationActivity extends AppCompatActivity {
                     break;
                 case MenuItem.FUNCTION_TYPE_URL:
                     menuItemIntent = UrlFunctionActivity.newIntent(NavigationActivity.this, menuItem.getParam());
+                    break;
+                case MenuItem.FUNCTION_TYPE_IMAGE:
+                    menuItemIntent = ImageFunctionActivity.newIntent(NavigationActivity.this, menuItem.getParam());
                     break;
             }
 
