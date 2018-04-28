@@ -1,9 +1,5 @@
 package com.zarudna.navigationwizard.ui.textfunction;
 
-import android.arch.lifecycle.ViewModel;
-import android.databinding.Observable;
-import android.databinding.PropertyChangeRegistry;
-
 import com.zarudna.navigationwizard.BR;
 import com.zarudna.navigationwizard.ui.ObservableViewModel;
 
