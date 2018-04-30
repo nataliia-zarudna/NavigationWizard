@@ -26,6 +26,10 @@ public class NavigationViewModel extends ViewModel {
         this.mListener = listener;
     }
 
+    public void setMenuRepository(MenuRepository menuRepository) {
+        this.mMenuRepository = menuRepository;
+    }
+
     public LiveData<List<MenuItem>> loadMenu() {
         return mMenuRepository.getMenuItems((message, e) -> {
             if (mListener != null) {
