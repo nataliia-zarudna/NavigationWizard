@@ -26,7 +26,7 @@ import retrofit2.Response;
 public class MenuRepository {
 
     private static final String TAG = "MenuRepository";
-    private static final String MENU_CACHE_KEY = "com.zarudna.navigationwizard.model.menu.cached_menu";
+    public static final String MENU_CACHE_KEY = "com.zarudna.navigationwizard.model.menu.cached_menu";
 
     private MenuAPI mMenuAPI;
     private InMemoryCache mCache;
