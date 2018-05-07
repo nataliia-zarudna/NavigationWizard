@@ -37,8 +37,12 @@ public class MenuItem {
 
     private String param;
 
-    public MenuItem(String name, String function, String param) {
+    public MenuItem() {
         this.itemID = UUID.randomUUID();
+    }
+
+    public MenuItem(String name, String function, String param) {
+        this();
         this.name = name;
         this.function = function;
         this.param = param;
